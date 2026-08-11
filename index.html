@@ -233,6 +233,44 @@
     max-width:170px;margin-top:2px;
   }
 
+  /* ============ CONTENIDO PESTAÑA ABC (condensado) ============ */
+  .abc-tab-preview{
+    margin-top:38px;padding-top:30px;border-top:1px solid var(--line);
+    text-align:center;
+  }
+  .abc-tab-preview .atp-label{
+    display:inline-flex;background:var(--sand);color:var(--olive-deep);font-size:11px;font-weight:700;
+    letter-spacing:.1em;text-transform:uppercase;padding:6px 15px;border-radius:999px;
+    border:1px solid var(--line);margin-bottom:16px;
+  }
+  .abc-tab-preview h2{font-size:22px;font-weight:700;color:var(--ink);margin:0 auto 10px;max-width:700px;}
+  .abc-tab-preview p.atp-lead{font-size:14px;line-height:1.65;color:var(--slate);margin:0 auto 30px;max-width:640px;}
+
+  .atp-legend{
+    display:flex;flex-wrap:wrap;justify-content:center;gap:22px;margin-bottom:34px;
+  }
+  .atp-legend-item{
+    display:flex;flex-direction:column;align-items:center;gap:10px;width:150px;text-align:center;
+  }
+  .atp-legend-icon{
+    width:56px;height:56px;border-radius:50%;background:#fff;flex:none;
+    border:2.5px solid var(--accent, var(--olive));display:flex;align-items:center;justify-content:center;
+  }
+  .atp-legend-icon svg{width:22px;height:22px;color:var(--accent, var(--olive));}
+  .atp-legend-item b{display:block;font-size:12.5px;color:var(--ink);line-height:1.3;}
+  .atp-legend-item span{display:block;font-size:11px;color:var(--slate);line-height:1.4;margin-top:2px;}
+
+  .atp-facts{
+    display:flex;flex-wrap:wrap;justify-content:center;gap:14px;max-width:820px;margin:0 auto;text-align:left;
+  }
+  .atp-fact{
+    flex:1 1 300px;background:var(--sand);border:1px solid var(--line);border-radius:11px;
+    padding:16px 20px;
+  }
+  .atp-fact b{display:block;font-size:12px;font-weight:700;color:var(--olive-deep);
+    text-transform:uppercase;letter-spacing:.04em;margin-bottom:6px;}
+  .atp-fact p{font-size:12.5px;line-height:1.6;color:var(--ink);margin:0;}
+
   @media (max-width:900px){
     .quicknav-band{justify-content:center;}
     .quicknav-item{flex:1 1 30%;}
@@ -435,16 +473,16 @@
       </div>
     </a>
 
-    <div class="tab-bar">
-      <div class="tab-item">ABC</div>
-      <div class="tab-item active">Precios de Referencia</div>
-      <div class="tab-item">Especificaciones Técnicas</div>
-      <div class="tab-item">Geoportal</div>
-      <div class="tab-item">Directorio de Proveedores</div>
-      <div class="tab-item">Innovación Sostenible</div>
+    <div class="tab-bar" id="siipTabBar">
+      <div class="tab-item" data-tab="abc">ABC</div>
+      <div class="tab-item active" data-tab="precios">Precios de Referencia</div>
+      <div class="tab-item" data-tab="especificaciones">Especificaciones Técnicas</div>
+      <div class="tab-item" data-tab="geoportal">Geoportal</div>
+      <div class="tab-item" data-tab="directorio">Directorio de materiales</div>
+      <div class="tab-item" data-tab="innovacion">Innovación Sostenible</div>
     </div>
 
-    <div class="quicknav-band">
+    <div class="quicknav-band tab-panel" id="panel-precios">
 
       <a class="quicknav-item" href="https://www.idu.gov.co/page/siipviales/economico/portafolio" style="--accent:#C08A2E">
         <div class="quicknav-icon">
@@ -478,9 +516,216 @@
         <span class="qn-desc">Perfiles viales para proyectos de construcción</span>
       </a>
 
+      <a class="quicknav-item" href="https://www.idu.gov.co/page/siipviales/economico/portafolio" style="--accent:#8b8a7c">
+        <div class="quicknav-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><path d="M3.5 19c1-3.2 3-4.8 5.5-4.8s4.5 1.6 5.5 4.8"/><circle cx="17.5" cy="9" r="2.2"/><path d="M15.3 14.5c1.6.2 2.9 1.5 3.7 3.6"/></svg>
+        </div>
+        <b>Directorio de<br>Cotizaciones</b>
+        <span class="qn-desc">Proveedores de cotizaciones 2026-I</span>
+      </a>
+
+      <a class="quicknav-item" href="https://www.idu.gov.co/page/siipviales/economico/portafolio" style="--accent:#8b8a7c">
+        <div class="quicknav-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="4.5" width="17" height="15" rx="2"/><path d="M3.5 9.5h17M8 4.5v3M16 4.5v3"/></svg>
+        </div>
+        <b>Historial de<br>Precios</b>
+        <span class="qn-desc">Publicaciones 2013 — 2026</span>
+      </a>
+
+      <a class="quicknav-item" href="https://www.idu.gov.co/page/siipviales/economico/portafolio" style="--accent:#8b8a7c">
+        <div class="quicknav-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="4.5" width="17" height="15" rx="2"/><path d="M3.5 9.5h17M8 4.5v3M16 4.5v3"/></svg>
+        </div>
+        <b>Historial<br>Perfiles POT</b>
+        <span class="qn-desc">Publicaciones 2018 — 2026</span>
+      </a>
+
+    </div>
+
+    <div class="abc-tab-preview tab-panel" id="panel-abc" style="display:none;border-top:none;margin-top:0;padding-top:0;">
+      <div class="atp-label">Contenido de la pestaña ABC</div>
+      <h2>¿Qué es SIIPVIALES?</h2>
+      <p class="atp-lead">Proceso sistemático que provee, integra, compila, analiza y sintetiza información de la infraestructura vial y del espacio público que administra el IDU, con información estandarizada, oportuna, confiable y certera para la toma de decisiones.</p>
+
+      <div class="atp-legend">
+        <div class="atp-legend-item">
+          <div class="atp-legend-icon" style="--accent:#C08A2E"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V13"/><path d="M11 20V8"/><path d="M18 20V4"/><path d="M2.5 20.5h19"/></svg></div>
+          <b>Precios de Referencia</b>
+          <span>Visor, fichas técnicas e histórico</span>
+        </div>
+        <div class="atp-legend-item">
+          <div class="atp-legend-icon" style="--accent:#3E5C99"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2.5h9l4 4V21a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1Z"/><path d="M14.5 2.5V7h4.5M8 12.5h8M8 16h8M8 9h4"/></svg></div>
+          <b>Especificaciones Técnicas</b>
+          <span>Documentos ET-IC-01 por capítulos</span>
+        </div>
+        <div class="atp-legend-item">
+          <div class="atp-legend-icon" style="--accent:#B8862E"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6.5-5.7-6.5-11A6.5 6.5 0 0 1 18.5 10c0 5.3-6.5 11-6.5 11Z"/><circle cx="12" cy="10" r="2.2"/></svg></div>
+          <b>Geoportal</b>
+          <span>Datos georreferenciados</span>
+        </div>
+        <div class="atp-legend-item">
+          <div class="atp-legend-icon" style="--accent:#215B58"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 4l9 6.5"/><path d="M5 9.5V21h14V9.5"/><path d="M9.5 21v-6h5v6"/></svg></div>
+          <b>Directorio de materiales</b>
+          <span>Materiales y sitios RCD</span>
+        </div>
+        <div class="atp-legend-item">
+          <div class="atp-legend-icon" style="--accent:#4C7A5A"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20 4C10 4 4 10 4 18v1h1c8 0 14-6 14-14V4Z"/><path d="M8.5 18c3-3 6-6 10-10.5"/></svg></div>
+          <b>Innovación Sostenible</b>
+          <span>Guía y formatos</span>
+        </div>
+      </div>
+
+      <div class="atp-facts">
+        <div class="atp-fact">
+          <b>Objetivos</b>
+          <p>Integrar los datos de las intervenciones del IDU, mantener la base de precios de referencia, impulsar la innovación en procesos constructivos, administrar los indicadores de seguimiento, fortalecer un sistema experto de conocimiento y disponer de información geográfica del territorio.</p>
+        </div>
+        <div class="atp-fact">
+          <b>¿Quién lo puede utilizar?</b>
+          <p>Academia, ciudadanía en general, empresas constructoras, contratistas de obra, entidades del Distrito y del orden Nacional.</p>
+        </div>
+      </div>
+
+      <div style="margin-top:26px;">
+        <a class="abc-banner-btn" href="https://www.idu.gov.co/blog/boletines-de-prensa-idu-1/post/abece-siipviales-1591" style="background:#6C7A1C;">Ver ABECÉ completo
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="quicknav-band tab-panel" id="panel-especificaciones" style="display:none;">
+      <a class="quicknav-item" href="https://www.idu.gov.co/page/especificaciones-tecnicas-generales-de-materiales" style="--accent:#3E5C99">
+        <div class="quicknav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2.5h9l4 4V21a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1Z"/><path d="M14.5 2.5V7h4.5M8 12.5h8M8 16h8M8 9h4"/></svg></div>
+        <b>ET-IC-01</b>
+        <span class="qn-desc">Especificaciones técnicas generales de materiales</span>
+      </a>
+      <a class="quicknav-item" href="https://www.idu.gov.co/page/siipviales/innovacion/portafolio" style="--accent:#8b8a7c">
+        <div class="quicknav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="4.5" width="17" height="15" rx="2"/><path d="M3.5 9.5h17M8 4.5v3M16 4.5v3"/></svg></div>
+        <b>Documentos<br>Históricos</b>
+        <span class="qn-desc">Versiones anteriores</span>
+      </a>
+      <a class="quicknav-item" href="https://www.idu.gov.co/page/siipviales/innovacion/portafolio" style="--accent:#3E5C99">
+        <div class="quicknav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2.5h9l4 4V21a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1Z"/><path d="M14.5 2.5V7h4.5M8 12.5h8M8 16h8M8 9h4"/></svg></div>
+        <b>Boletines</b>
+        <span class="qn-desc">Documentos técnicos</span>
+      </a>
+      <a class="quicknav-item" href="https://www.idu.gov.co/page/siipviales/innovacion/portafolio" style="--accent:#3E5C99">
+        <div class="quicknav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg></div>
+        <b>Visores</b>
+        <span class="qn-desc">Documentos técnicos</span>
+      </a>
+      <a class="quicknav-item" href="https://www.idu.gov.co/page/siipviales/innovacion/portafolio" style="--accent:#3E5C99">
+        <div class="quicknav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2.5h9l4 4V21a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1Z"/><path d="M14.5 2.5V7h4.5M8 12.5h8M8 16h8M8 9h4"/></svg></div>
+        <b>Documentos</b>
+        <span class="qn-desc">Biblioteca de estudios</span>
+      </a>
+      <a class="quicknav-item" href="https://www.idu.gov.co/page/siipviales/innovacion/portafolio" style="--accent:#8b8a7c">
+        <div class="quicknav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20 4C10 4 4 10 4 18v1h1c8 0 14-6 14-14V4Z"/><path d="M8.5 18c3-3 6-6 10-10.5"/></svg></div>
+        <b>Jornadas IDU</b>
+        <span class="qn-desc">Transferencia de conocimiento</span>
+      </a>
+    </div>
+
+    <div class="quicknav-band tab-panel" id="panel-directorio" style="display:none;">
+      <a class="quicknav-item" href="https://www.idu.gov.co/page/siipviales/ambiental/portafolio" style="--accent:#215B58">
+        <div class="quicknav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg></div>
+        <b>Visor Materiales<br>y RCD</b>
+        <span class="qn-desc">Módulo Materiales de Construcción y Gestores de RCD</span>
+      </a>
+      <a class="quicknav-item" href="https://www.idu.gov.co/page/siipviales/ambiental/portafolio" style="--accent:#2B7A73">
+        <div class="quicknav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6.5-5.7-6.5-11A6.5 6.5 0 0 1 18.5 10c0 5.3-6.5 11-6.5 11Z"/><circle cx="12" cy="10" r="2.2"/></svg></div>
+        <b>Servicio<br>Geográfico</b>
+        <span class="qn-desc">Materiales y RCD georreferenciado</span>
+      </a>
+      <a class="quicknav-item" href="https://www.idu.gov.co/page/siipviales/economico/portafolio" style="--accent:#C08A2E">
+        <div class="quicknav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><path d="M3.5 19c1-3.2 3-4.8 5.5-4.8s4.5 1.6 5.5 4.8"/><circle cx="17.5" cy="9" r="2.2"/><path d="M15.3 14.5c1.6.2 2.9 1.5 3.7 3.6"/></svg></div>
+        <b>Visor Módulo<br>Cotizaciones</b>
+        <span class="qn-desc">Fase I - 2026</span>
+      </a>
+      <a class="quicknav-item" href="https://www.idu.gov.co/page/siipviales/ambiental/portafolio" style="--accent:#215B58">
+        <div class="quicknav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2.5h9l4 4V21a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1Z"/><path d="M14.5 2.5V7h4.5M8 12.5h8M8 16h8M8 9h4"/></svg></div>
+        <b>Formato<br>FO-IC-07</b>
+        <span class="qn-desc">Inscripción o renovación en el Directorio</span>
+      </a>
+      <a class="quicknav-item" href="https://www.idu.gov.co/page/siipviales/ambiental/portafolio" style="--accent:#215B58">
+        <div class="quicknav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2.5h9l4 4V21a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1Z"/><path d="M14.5 2.5V7h4.5M8 12.5h8M8 16h8M8 9h4"/></svg></div>
+        <b>Formato<br>FO-IC-06</b>
+        <span class="qn-desc">Reporte y suministro de materiales y RCD</span>
+      </a>
+      <a class="quicknav-item" href="https://www.idu.gov.co/page/siipviales/ambiental/portafolio" style="--accent:#8b8a7c">
+        <div class="quicknav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="4.5" width="17" height="15" rx="2"/><path d="M3.5 9.5h17M8 4.5v3M16 4.5v3"/></svg></div>
+        <b>Historial<br>Materiales y RCD</b>
+        <span class="qn-desc">Publicaciones anteriores</span>
+      </a>
+      <a class="quicknav-item" href="https://www.idu.gov.co/page/siipviales/economico/portafolio" style="--accent:#8b8a7c">
+        <div class="quicknav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="4.5" width="17" height="15" rx="2"/><path d="M3.5 9.5h17M8 4.5v3M16 4.5v3"/></svg></div>
+        <b>Historial<br>Cotizaciones</b>
+        <span class="qn-desc">Publicaciones anteriores</span>
+      </a>
+    </div>
+
+    <div class="quicknav-band tab-panel" id="panel-innovacion" style="display:none;">
+      <a class="quicknav-item" href="https://www.idu.gov.co/page/productos-tecnicas-o-tecnologias-innovadoras-y-sos" style="--accent:#4C7A5A">
+        <div class="quicknav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20 4C10 4 4 10 4 18v1h1c8 0 14-6 14-14V4Z"/><path d="M8.5 18c3-3 6-6 10-10.5"/></svg></div>
+        <b>Guía<br>GU-IC-17</b>
+        <span class="qn-desc">Presentación de alternativas</span>
+      </a>
+      <a class="quicknav-item" href="https://www.idu.gov.co/page/productos-tecnicas-o-tecnologias-innovadoras-y-sos" style="--accent:#4C7A5A">
+        <div class="quicknav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2.5h9l4 4V21a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1Z"/><path d="M14.5 2.5V7h4.5M8 12.5h8M8 16h8M8 9h4"/></svg></div>
+        <b>Formato<br>FO-IC-15</b>
+        <span class="qn-desc">Carta de presentación</span>
+      </a>
+      <a class="quicknav-item" href="https://www.idu.gov.co/page/productos-tecnicas-o-tecnologias-innovadoras-y-sos" style="--accent:#4C7A5A">
+        <div class="quicknav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2.5h9l4 4V21a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1Z"/><path d="M14.5 2.5V7h4.5M8 12.5h8M8 16h8M8 9h4"/></svg></div>
+        <b>Formato<br>FO-IC-16</b>
+        <span class="qn-desc">Presentación de alternativas</span>
+      </a>
+      <a class="quicknav-item" href="https://www.idu.gov.co/page/productos-tecnicas-o-tecnologias-innovadoras-y-sos" style="--accent:#4C7A5A">
+        <div class="quicknav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2.5h9l4 4V21a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1Z"/><path d="M14.5 2.5V7h4.5M8 12.5h8M8 16h8M8 9h4"/></svg></div>
+        <b>Formato<br>FO-IC-18</b>
+        <span class="qn-desc">Evaluación de pre-calificación</span>
+      </a>
+      <a class="quicknav-item" href="https://www.idu.gov.co/page/productos-tecnicas-o-tecnologias-innovadoras-y-sos" style="--accent:#4C7A5A">
+        <div class="quicknav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2.5h9l4 4V21a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1Z"/><path d="M14.5 2.5V7h4.5M8 12.5h8M8 16h8M8 9h4"/></svg></div>
+        <b>Formato<br>FO-IC-41</b>
+        <span class="qn-desc">Boletín técnico</span>
+      </a>
+      <a class="quicknav-item" href="https://www.idu.gov.co/page/productos-tecnicas-o-tecnologias-innovadoras-y-sos" style="--accent:#4C7A5A">
+        <div class="quicknav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2.5h9l4 4V21a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1Z"/><path d="M14.5 2.5V7h4.5M8 12.5h8M8 16h8M8 9h4"/></svg></div>
+        <b>Formato<br>FO-IC-42</b>
+        <span class="qn-desc">Presentación de visor</span>
+      </a>
     </div>
   </div>
 </main>
+
+<script>
+(function(){
+  var tabBar = document.getElementById('siipTabBar');
+  if(!tabBar) return;
+  var tabs = tabBar.querySelectorAll('.tab-item');
+  var panels = document.querySelectorAll('.tab-panel');
+  var geoportalUrl = 'https://geoportal-idu.hub.arcgis.com/';
+
+  tabs.forEach(function(tab){
+    tab.addEventListener('click', function(){
+      var key = tab.getAttribute('data-tab');
+
+      if(key === 'geoportal'){
+        window.open(geoportalUrl, '_blank');
+        return;
+      }
+
+      tabs.forEach(function(t){ t.classList.remove('active'); });
+      tab.classList.add('active');
+
+      panels.forEach(function(p){ p.style.display = 'none'; });
+      var panel = document.getElementById('panel-' + key);
+      if(panel){ panel.style.display = (panel.classList.contains('abc-tab-preview') ? 'block' : 'flex'); }
+    });
+  });
+})();
+</script>
 
 <footer class="site">
   <div class="wrap">
