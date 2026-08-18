@@ -211,11 +211,30 @@
     background:transparent;padding:32px 10px 6px;display:flex;flex-wrap:wrap;
     justify-content:space-between;align-items:flex-start;gap:24px;margin-top:0;
   }
+  .panel-intro{
+    flex:1 1 100%;width:100%;text-align:center;margin:0 0 12px;
+  }
+  .panel-intro h2{font-size:19px;font-weight:700;color:var(--ink);margin:0 auto 8px;max-width:700px;}
+  .panel-intro p{font-size:13.5px;line-height:1.6;color:var(--slate);margin:0 auto;max-width:700px;}
   .quicknav-item{
-    display:flex;flex-direction:column;align-items:center;gap:16px;cursor:pointer;
+    position:relative;display:flex;flex-direction:column;align-items:center;gap:16px;cursor:pointer;
     flex:1 1 auto;min-width:150px;text-align:center;
   }
   .quicknav-item:hover .quicknav-icon{transform:translateY(-3px);box-shadow:0 10px 18px -8px rgba(35,38,43,.35);}
+  .qn-tooltip{
+    position:absolute;top:calc(100% + 12px);left:50%;
+    transform:translateX(-50%) translateY(-6px);
+    width:210px;background:#23262B;color:#fff;font-size:11.5px;line-height:1.55;
+    padding:12px 14px;border-radius:10px;text-align:left;
+    opacity:0;visibility:hidden;pointer-events:none;
+    transition:opacity .16s ease, transform .16s ease;
+    box-shadow:0 14px 28px -10px rgba(0,0,0,.4);z-index:30;
+  }
+  .qn-tooltip::after{
+    content:'';position:absolute;bottom:100%;left:50%;transform:translateX(-50%);
+    border:6px solid transparent;border-bottom-color:#23262B;
+  }
+  .quicknav-item:hover .qn-tooltip{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0);}
   .quicknav-icon{
     width:96px;height:96px;border-radius:50%;background:#fff;flex:none;
     border:3px solid var(--accent, var(--olive));
@@ -474,15 +493,20 @@
     </a>
 
     <div class="tab-bar" id="siipTabBar">
-      <div class="tab-item" data-tab="abc">ABC</div>
-      <div class="tab-item active" data-tab="precios">Precios de Referencia</div>
+      <div class="tab-item active" data-tab="abc">¿Qué encontrarás aquí?</div>
+      <div class="tab-item" data-tab="precios">Precios de Referencia</div>
       <div class="tab-item" data-tab="especificaciones">Especificaciones Técnicas</div>
       <div class="tab-item" data-tab="geoportal">Geoportal</div>
       <div class="tab-item" data-tab="directorio">Directorio de materiales</div>
       <div class="tab-item" data-tab="innovacion">Innovación Sostenible</div>
     </div>
 
-    <div class="quicknav-band tab-panel" id="panel-precios">
+    <div class="quicknav-band tab-panel" id="panel-precios" style="display:none;">
+
+      <div class="panel-intro">
+        <h2>Sistema de información de precios unitarios de referencia del IDU</h2>
+        <p>En este sitio encontrará información relacionada con el Sistema de precios unitarios de referencia del IDU, como el visor de precios vigente, los costos estimativos a partir de Perfiles Viales POT, y la información histórica publicada.</p>
+      </div>
 
       <a class="quicknav-item" href="https://www.idu.gov.co/page/siipviales/economico/portafolio" style="--accent:#C08A2E">
         <div class="quicknav-icon">
@@ -490,6 +514,7 @@
         </div>
         <b>Precios Unitarios<br>de Referencia</b>
         <span class="qn-desc">Visor de precios vigente 2026-I Fase I</span>
+        <div class="qn-tooltip">Consulta los precios unitarios vigentes para materiales, insumos y actividades de construcción vial, actualizados semestralmente por el IDU.</div>
       </a>
 
       <a class="quicknav-item" href="https://www.idu.gov.co/page/siipviales/economico/portafolio" style="--accent:#C08A2E">
@@ -498,6 +523,7 @@
         </div>
         <b>Fichas Técnicas<br>de Equipos</b>
         <span class="qn-desc">Especificaciones de equipos para obra</span>
+        <div class="qn-tooltip">Encuentra las fichas con las especificaciones técnicas de la maquinaria y los equipos utilizados en los procesos constructivos.</div>
       </a>
 
       <a class="quicknav-item" href="https://www.idu.gov.co/page/siipviales/economico/portafolio" style="--accent:#C08A2E">
@@ -506,6 +532,7 @@
         </div>
         <b>Fichas Técnicas<br>de Ensayos</b>
         <span class="qn-desc">Especificaciones de ensayos de laboratorio</span>
+        <div class="qn-tooltip">Consulta las especificaciones de los ensayos de laboratorio requeridos para verificar la calidad de los materiales.</div>
       </a>
 
       <a class="quicknav-item" href="https://www.idu.gov.co/page/siipviales/economico/portafolio" style="--accent:#C08A2E">
@@ -514,36 +541,31 @@
         </div>
         <b>Costos Estimados<br>POT 190</b>
         <span class="qn-desc">Perfiles viales para proyectos de construcción</span>
+        <div class="qn-tooltip">Revisa los costos estimados de construcción según los perfiles viales establecidos en el POT 190 vigente.</div>
       </a>
 
       <a class="quicknav-item" href="https://www.idu.gov.co/page/siipviales/economico/portafolio" style="--accent:#8b8a7c">
         <div class="quicknav-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><path d="M3.5 19c1-3.2 3-4.8 5.5-4.8s4.5 1.6 5.5 4.8"/><circle cx="17.5" cy="9" r="2.2"/><path d="M15.3 14.5c1.6.2 2.9 1.5 3.7 3.6"/></svg>
         </div>
-        <b>Directorio de<br>Cotizaciones</b>
-        <span class="qn-desc">Proveedores de cotizaciones 2026-I</span>
+        <b>Módulo Fuente de<br>Estudio del Mercado</b>
+        <span class="qn-desc">Empresas participantes 2026</span>
+        <div class="qn-tooltip">Consulta el listado de empresas que participaron en el estudio de fuentes del mercado para la vigencia 2026.</div>
       </a>
 
       <a class="quicknav-item" href="https://www.idu.gov.co/page/siipviales/economico/portafolio" style="--accent:#8b8a7c">
         <div class="quicknav-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="4.5" width="17" height="15" rx="2"/><path d="M3.5 9.5h17M8 4.5v3M16 4.5v3"/></svg>
         </div>
-        <b>Historial de<br>Precios</b>
+        <b>Información<br>Histórica</b>
         <span class="qn-desc">Publicaciones 2013 — 2026</span>
-      </a>
-
-      <a class="quicknav-item" href="https://www.idu.gov.co/page/siipviales/economico/portafolio" style="--accent:#8b8a7c">
-        <div class="quicknav-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="4.5" width="17" height="15" rx="2"/><path d="M3.5 9.5h17M8 4.5v3M16 4.5v3"/></svg>
-        </div>
-        <b>Historial<br>Perfiles POT</b>
-        <span class="qn-desc">Publicaciones 2018 — 2026</span>
+        <div class="qn-tooltip">Accede a las versiones anteriores de los precios de referencia y de los perfiles viales POT, publicadas desde 2013.</div>
       </a>
 
     </div>
 
-    <div class="abc-tab-preview tab-panel" id="panel-abc" style="display:none;border-top:none;margin-top:0;padding-top:0;">
-      <div class="atp-label">Contenido de la pestaña ABC</div>
+    <div class="abc-tab-preview tab-panel" id="panel-abc" style="border-top:none;margin-top:0;padding-top:0;">
+      <div class="atp-label">¿Qué encontrarás aquí?</div>
       <h2>¿Qué es SIIPVIALES?</h2>
       <p class="atp-lead">Proceso sistemático que provee, integra, compila, analiza y sintetiza información de la infraestructura vial y del espacio público que administra el IDU, con información estandarizada, oportuna, confiable y certera para la toma de decisiones.</p>
 
@@ -594,106 +616,137 @@
     </div>
 
     <div class="quicknav-band tab-panel" id="panel-especificaciones" style="display:none;">
+      <div class="panel-intro">
+        <h2>Especificaciones Técnicas</h2>
+        <p>En este sitio encontrará el conjunto de documentos que especifican condiciones, criterios, procedimientos y métodos técnicos mínimos para la ejecución de los trabajos a ser aplicados en proyectos de construcción, conservación e interventoría de Bogotá D.C.</p>
+      </div>
       <a class="quicknav-item" href="https://www.idu.gov.co/page/especificaciones-tecnicas-generales-de-materiales" style="--accent:#3E5C99">
         <div class="quicknav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2.5h9l4 4V21a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1Z"/><path d="M14.5 2.5V7h4.5M8 12.5h8M8 16h8M8 9h4"/></svg></div>
         <b>ET-IC-01</b>
         <span class="qn-desc">Especificaciones técnicas generales de materiales</span>
+        <div class="qn-tooltip">El documento ET-IC-01 reúne las especificaciones técnicas generales de materiales y construcción para proyectos de infraestructura vial y espacio público.</div>
       </a>
       <a class="quicknav-item" href="https://www.idu.gov.co/page/siipviales/innovacion/portafolio" style="--accent:#8b8a7c">
         <div class="quicknav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="4.5" width="17" height="15" rx="2"/><path d="M3.5 9.5h17M8 4.5v3M16 4.5v3"/></svg></div>
         <b>Documentos<br>Históricos</b>
         <span class="qn-desc">Versiones anteriores</span>
+        <div class="qn-tooltip">Consulta versiones anteriores de las especificaciones técnicas, por si necesitas verificar la vigencia de un documento específico.</div>
       </a>
       <a class="quicknav-item" href="https://www.idu.gov.co/page/siipviales/innovacion/portafolio" style="--accent:#3E5C99">
         <div class="quicknav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2.5h9l4 4V21a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1Z"/><path d="M14.5 2.5V7h4.5M8 12.5h8M8 16h8M8 9h4"/></svg></div>
         <b>Boletines</b>
         <span class="qn-desc">Documentos técnicos</span>
+        <div class="qn-tooltip">Documentos técnicos periódicos relacionados con el inventario y diagnóstico de la infraestructura vial y espacio público.</div>
       </a>
       <a class="quicknav-item" href="https://www.idu.gov.co/page/siipviales/innovacion/portafolio" style="--accent:#3E5C99">
         <div class="quicknav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg></div>
         <b>Visores</b>
         <span class="qn-desc">Documentos técnicos</span>
+        <div class="qn-tooltip">Herramientas para consultar visualmente la información técnica de inventario y diagnóstico de la infraestructura.</div>
       </a>
       <a class="quicknav-item" href="https://www.idu.gov.co/page/siipviales/innovacion/portafolio" style="--accent:#3E5C99">
         <div class="quicknav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2.5h9l4 4V21a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1Z"/><path d="M14.5 2.5V7h4.5M8 12.5h8M8 16h8M8 9h4"/></svg></div>
         <b>Documentos</b>
         <span class="qn-desc">Biblioteca de estudios</span>
+        <div class="qn-tooltip">Biblioteca de estudios producto de consultorías sobre inventario, diagnóstico, materiales, diseño y gestión de infraestructura.</div>
       </a>
       <a class="quicknav-item" href="https://www.idu.gov.co/page/siipviales/innovacion/portafolio" style="--accent:#8b8a7c">
         <div class="quicknav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20 4C10 4 4 10 4 18v1h1c8 0 14-6 14-14V4Z"/><path d="M8.5 18c3-3 6-6 10-10.5"/></svg></div>
         <b>Jornadas IDU</b>
         <span class="qn-desc">Transferencia de conocimiento</span>
+        <div class="qn-tooltip">Presentaciones de las jornadas de transferencia de conocimiento del IDU en innovación y sostenibilidad.</div>
       </a>
     </div>
 
     <div class="quicknav-band tab-panel" id="panel-directorio" style="display:none;">
+      <div class="panel-intro">
+        <h2>Directorio de materiales, construcción y conservación</h2>
+        <p>Instrumento de carácter informativo que integra y centraliza la información relacionada con los módulos de materiales de construcción y gestores de RCD y cotizaciones, facilitando la inscripción, renovación y consulta para apoyar la gestión de los proyectos del IDU.</p>
+      </div>
       <a class="quicknav-item" href="https://www.idu.gov.co/page/siipviales/ambiental/portafolio" style="--accent:#215B58">
         <div class="quicknav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg></div>
         <b>Visor Materiales<br>y RCD</b>
         <span class="qn-desc">Módulo Materiales de Construcción y Gestores de RCD</span>
+        <div class="qn-tooltip">Consulta el listado de proveedores activos de materiales de construcción y gestores de residuos de construcción y demolición (RCD).</div>
       </a>
       <a class="quicknav-item" href="https://www.idu.gov.co/page/siipviales/ambiental/portafolio" style="--accent:#2B7A73">
         <div class="quicknav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6.5-5.7-6.5-11A6.5 6.5 0 0 1 18.5 10c0 5.3-6.5 11-6.5 11Z"/><circle cx="12" cy="10" r="2.2"/></svg></div>
         <b>Servicio<br>Geográfico</b>
         <span class="qn-desc">Materiales y RCD georreferenciado</span>
+        <div class="qn-tooltip">Visualiza el directorio de materiales y RCD georreferenciado en un tablero interactivo.</div>
       </a>
       <a class="quicknav-item" href="https://www.idu.gov.co/page/siipviales/economico/portafolio" style="--accent:#C08A2E">
         <div class="quicknav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><path d="M3.5 19c1-3.2 3-4.8 5.5-4.8s4.5 1.6 5.5 4.8"/><circle cx="17.5" cy="9" r="2.2"/><path d="M15.3 14.5c1.6.2 2.9 1.5 3.7 3.6"/></svg></div>
         <b>Visor Módulo<br>Cotizaciones</b>
         <span class="qn-desc">Fase I - 2026</span>
+        <div class="qn-tooltip">Consulta el directorio de empresas disponibles para solicitar cotizaciones de materiales y servicios.</div>
       </a>
       <a class="quicknav-item" href="https://www.idu.gov.co/page/siipviales/ambiental/portafolio" style="--accent:#215B58">
         <div class="quicknav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2.5h9l4 4V21a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1Z"/><path d="M14.5 2.5V7h4.5M8 12.5h8M8 16h8M8 9h4"/></svg></div>
         <b>Formato<br>FO-IC-07</b>
         <span class="qn-desc">Inscripción o renovación en el Directorio</span>
+        <div class="qn-tooltip">Formato para solicitar la inscripción o renovación de tu empresa en el Directorio.</div>
       </a>
       <a class="quicknav-item" href="https://www.idu.gov.co/page/siipviales/ambiental/portafolio" style="--accent:#215B58">
         <div class="quicknav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2.5h9l4 4V21a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1Z"/><path d="M14.5 2.5V7h4.5M8 12.5h8M8 16h8M8 9h4"/></svg></div>
         <b>Formato<br>FO-IC-06</b>
         <span class="qn-desc">Reporte y suministro de materiales y RCD</span>
+        <div class="qn-tooltip">Formato para reportar el suministro de materiales y servicios de gestión de RCD.</div>
       </a>
       <a class="quicknav-item" href="https://www.idu.gov.co/page/siipviales/ambiental/portafolio" style="--accent:#8b8a7c">
         <div class="quicknav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="4.5" width="17" height="15" rx="2"/><path d="M3.5 9.5h17M8 4.5v3M16 4.5v3"/></svg></div>
         <b>Historial<br>Materiales y RCD</b>
         <span class="qn-desc">Publicaciones anteriores</span>
+        <div class="qn-tooltip">Publicaciones quincenales anteriores del directorio de materiales y gestores de RCD, desde 2016.</div>
       </a>
       <a class="quicknav-item" href="https://www.idu.gov.co/page/siipviales/economico/portafolio" style="--accent:#8b8a7c">
         <div class="quicknav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="4.5" width="17" height="15" rx="2"/><path d="M3.5 9.5h17M8 4.5v3M16 4.5v3"/></svg></div>
         <b>Historial<br>Cotizaciones</b>
         <span class="qn-desc">Publicaciones anteriores</span>
+        <div class="qn-tooltip">Publicaciones anteriores del directorio de proveedores de cotizaciones.</div>
       </a>
     </div>
 
     <div class="quicknav-band tab-panel" id="panel-innovacion" style="display:none;">
+      <div class="panel-intro">
+        <h2>Productos, Técnicas o Tecnologías Innovadoras y Sostenibles</h2>
+        <p>Espacio dirigido a quienes tengan interés de presentar al IDU alternativas innovadoras y/o sostenibles orientadas a los proyectos de estudios y diseños, construcción o conservación de la infraestructura vial, puentes, espacio público o ciclorrutas de Bogotá D.C.</p>
+      </div>
       <a class="quicknav-item" href="https://www.idu.gov.co/page/productos-tecnicas-o-tecnologias-innovadoras-y-sos" style="--accent:#4C7A5A">
         <div class="quicknav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20 4C10 4 4 10 4 18v1h1c8 0 14-6 14-14V4Z"/><path d="M8.5 18c3-3 6-6 10-10.5"/></svg></div>
         <b>Guía<br>GU-IC-17</b>
         <span class="qn-desc">Presentación de alternativas</span>
+        <div class="qn-tooltip">Guía que explica el paso a paso para presentar al IDU una alternativa innovadora y/o sostenible.</div>
       </a>
       <a class="quicknav-item" href="https://www.idu.gov.co/page/productos-tecnicas-o-tecnologias-innovadoras-y-sos" style="--accent:#4C7A5A">
         <div class="quicknav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2.5h9l4 4V21a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1Z"/><path d="M14.5 2.5V7h4.5M8 12.5h8M8 16h8M8 9h4"/></svg></div>
         <b>Formato<br>FO-IC-15</b>
         <span class="qn-desc">Carta de presentación</span>
+        <div class="qn-tooltip">Carta de presentación requerida para postular un producto, técnica o tecnología ante el IDU.</div>
       </a>
       <a class="quicknav-item" href="https://www.idu.gov.co/page/productos-tecnicas-o-tecnologias-innovadoras-y-sos" style="--accent:#4C7A5A">
         <div class="quicknav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2.5h9l4 4V21a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1Z"/><path d="M14.5 2.5V7h4.5M8 12.5h8M8 16h8M8 9h4"/></svg></div>
         <b>Formato<br>FO-IC-16</b>
         <span class="qn-desc">Presentación de alternativas</span>
+        <div class="qn-tooltip">Formato para describir en detalle la alternativa innovadora o sostenible que deseas presentar.</div>
       </a>
       <a class="quicknav-item" href="https://www.idu.gov.co/page/productos-tecnicas-o-tecnologias-innovadoras-y-sos" style="--accent:#4C7A5A">
         <div class="quicknav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2.5h9l4 4V21a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1Z"/><path d="M14.5 2.5V7h4.5M8 12.5h8M8 16h8M8 9h4"/></svg></div>
         <b>Formato<br>FO-IC-18</b>
         <span class="qn-desc">Evaluación de pre-calificación</span>
+        <div class="qn-tooltip">Formato de evaluación con el que el IDU realiza la pre-calificación de tu propuesta.</div>
       </a>
       <a class="quicknav-item" href="https://www.idu.gov.co/page/productos-tecnicas-o-tecnologias-innovadoras-y-sos" style="--accent:#4C7A5A">
         <div class="quicknav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2.5h9l4 4V21a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1Z"/><path d="M14.5 2.5V7h4.5M8 12.5h8M8 16h8M8 9h4"/></svg></div>
         <b>Formato<br>FO-IC-41</b>
         <span class="qn-desc">Boletín técnico</span>
+        <div class="qn-tooltip">Formato para presentar el boletín técnico de tu producto, técnica o tecnología.</div>
       </a>
       <a class="quicknav-item" href="https://www.idu.gov.co/page/productos-tecnicas-o-tecnologias-innovadoras-y-sos" style="--accent:#4C7A5A">
         <div class="quicknav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2.5h9l4 4V21a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1Z"/><path d="M14.5 2.5V7h4.5M8 12.5h8M8 16h8M8 9h4"/></svg></div>
         <b>Formato<br>FO-IC-42</b>
         <span class="qn-desc">Presentación de visor</span>
+        <div class="qn-tooltip">Formato para presentar el visor de tu alternativa innovadora ante el IDU.</div>
       </a>
     </div>
   </div>
