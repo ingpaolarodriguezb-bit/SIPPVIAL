@@ -216,6 +216,59 @@
   }
   .panel-intro h2{font-size:19px;font-weight:700;color:var(--ink);margin:0 auto 8px;max-width:700px;}
   .panel-intro p{font-size:13.5px;line-height:1.6;color:var(--slate);margin:0 auto;max-width:700px;}
+
+  /* ============ CICLO DE GENERACIÓN (proceso de 5 pasos) ============ */
+  .cycle-wrap{flex:1 1 100%;width:100%;margin:6px 0 26px;}
+  .cycle-head{
+    background:#BD1522;color:#fff;font-size:13px;font-weight:800;text-transform:uppercase;
+    letter-spacing:.04em;text-align:center;padding:10px 16px;border-radius:8px 8px 0 0;
+  }
+  .cycle-body{
+    display:flex;gap:0;border:1px solid var(--line);border-top:none;border-radius:0 0 10px 10px;
+    padding:26px 18px 18px;background:#fff;
+  }
+  .cycle-step{flex:1;text-align:center;padding:0 10px;position:relative;}
+  .cycle-step .cs-num{
+    width:42px;height:42px;border-radius:50%;color:#fff;font-weight:800;font-size:15px;
+    display:flex;align-items:center;justify-content:center;margin:0 auto 12px;position:relative;z-index:2;
+  }
+
+  /* ============ LISTA DE CAPÍTULOS ET-IC-01 ============ */
+  .chapter-list{max-width:640px;margin:14px auto 0;text-align:left;}
+  .chapter-row{
+    display:flex;align-items:center;justify-content:space-between;gap:14px;
+    padding:13px 6px;border-bottom:1px solid var(--line);cursor:pointer;
+    transition:background .15s ease;
+  }
+  .chapter-row:hover{background:var(--sand);}
+  .chapter-row .cr-left{display:flex;align-items:baseline;gap:10px;}
+  .chapter-row .cr-num{font-size:11px;font-weight:700;color:var(--olive-deep);flex:none;width:20px;}
+  .chapter-row .cr-name{font-size:13.5px;font-weight:600;color:var(--ink);}
+  .chapter-row .cr-meta{font-size:11.5px;color:var(--slate);font-weight:400;}
+  .chapter-row .cr-chev{width:13px;height:13px;color:var(--slate);flex:none;}
+
+  .et-doc-row{
+    display:flex;align-items:baseline;gap:12px;padding:11px 6px;border-bottom:1px solid var(--line);
+    max-width:700px;margin:0 auto;text-align:left;
+  }
+  .et-doc-row .ed-code{font-size:11.5px;font-weight:700;color:var(--olive-deep);flex:none;width:52px;}
+  .et-doc-row .ed-name{font-size:13px;color:var(--ink);line-height:1.4;}
+  .cycle-step:nth-child(1) .cs-num{background:#F2B84B;}
+  .cycle-step:nth-child(2) .cs-num{background:#E8862F;}
+  .cycle-step:nth-child(3) .cs-num{background:#D14A2E;}
+  .cycle-step:nth-child(4) .cs-num{background:#BD1522;}
+  .cycle-step:nth-child(5) .cs-num{background:#7a0e16;}
+  .cycle-step::before{
+    content:'';position:absolute;top:21px;left:-50%;width:100%;height:2px;background:var(--line);z-index:1;
+  }
+  .cycle-step:first-child::before{display:none;}
+  .cycle-step p{font-size:11px;line-height:1.5;color:var(--slate);margin:0;}
+
+  @media (max-width:900px){
+    .cycle-body{flex-wrap:wrap;}
+    .cycle-step{flex:1 1 45%;margin-bottom:20px;}
+    .cycle-step::before{display:none;}
+  }
   .quicknav-item{
     position:relative;display:flex;flex-direction:column;align-items:center;gap:16px;cursor:pointer;
     flex:1 1 auto;min-width:150px;text-align:center;
@@ -494,8 +547,8 @@
     <div class="tab-bar" id="siipTabBar">
       <div class="tab-item active" data-tab="abc">¿Qué encontrarás aquí?</div>
       <div class="tab-item" data-tab="precios">Precios de Referencia</div>
-      <div class="tab-item" data-tab="especificaciones">Especificaciones Técnicas</div>
-      <div class="tab-item" data-tab="innovacion">Innovación Sostenible</div>
+      <div class="tab-item" data-tab="especificaciones">Documentos técnicos</div>
+      <div class="tab-item" data-tab="innovacion">Innovación y sostenibilidad</div>
       <div class="tab-item" data-tab="geoportal">Geoportal</div>
       <div class="tab-item" data-tab="directorio">Directorio</div>
     </div>
@@ -576,13 +629,13 @@
         </div>
         <div class="atp-legend-item">
           <div class="atp-legend-icon" style="--accent:#BD1522"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2.5h9l4 4V21a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1Z"/><path d="M14.5 2.5V7h4.5M8 12.5h8M8 16h8M8 9h4"/></svg></div>
-          <b>Especificaciones Técnicas</b>
-          <span>Documentos ET-IC-01 por capítulos</span>
+          <b>Documentos técnicos</b>
+          <span>Especificaciones, cartillas, guías, manuales técnicos</span>
         </div>
         <div class="atp-legend-item">
           <div class="atp-legend-icon" style="--accent:#4C7A5A"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20 4C10 4 4 10 4 18v1h1c8 0 14-6 14-14V4Z"/><path d="M8.5 18c3-3 6-6 10-10.5"/></svg></div>
-          <b>Innovación Sostenible</b>
-          <span>Guía y formatos</span>
+          <b>Innovación y sostenibilidad</b>
+          <span>Productos, técnicas o tecnologías innovadores y sostenibles</span>
         </div>
         <div class="atp-legend-item">
           <div class="atp-legend-icon" style="--accent:#B8862E"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6.5-5.7-6.5-11A6.5 6.5 0 0 1 18.5 10c0 5.3-6.5 11-6.5 11Z"/><circle cx="12" cy="10" r="2.2"/></svg></div>
@@ -615,24 +668,110 @@
         <h2>Sistema de especificaciones y documentos técnicos</h2>
         <p>Constituye el conjunto estructurado de bases de datos y documentos técnicos interconectados, cuyo propósito es brindar lineamientos convencionales y de innovación para la gestión de los activos que conforman la infraestructura vial y espacio público.</p>
       </div>
-      <a class="quicknav-item" href="https://www.idu.gov.co/page/especificaciones-tecnicas-generales-de-materiales" style="--accent:#BD1522">
-        <div class="quicknav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2.5h9l4 4V21a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1Z"/><path d="M14.5 2.5V7h4.5M8 12.5h8M8 16h8M8 9h4"/></svg></div>
-        <b>Especificaciones<br>Técnicas Generales</b>
-        <span class="qn-desc">Especificaciones técnicas generales de materiales</span>
-        <div class="qn-tooltip">Conjunto condiciones, criterios, procedimientos y métodos técnicos mínimos para la ejecución de los trabajos de construcción y conservación de la infraestructura vial y espacio público.</div>
-      </a>
-      <a class="quicknav-item" href="https://www.idu.gov.co/page/siipviales/innovacion/portafolio" style="--accent:#8b8a7c">
-        <div class="quicknav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="4.5" width="17" height="15" rx="2"/><path d="M3.5 9.5h17M8 4.5v3M16 4.5v3"/></svg></div>
-        <b>Documentos<br>técnicos</b>
-        <span class="qn-desc">Guías, manuales, visores y cartillas</span>
-        <div class="qn-tooltip">Repositorio de guías, manuales, visores, cartillas y documentos técnicos en general producto de los estudios realizados por el IDU.</div>
-      </a>
-      <a class="quicknav-item" href="https://www.idu.gov.co/page/siipviales/innovacion/portafolio" style="--accent:#8b8a7c">
-        <div class="quicknav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20 4C10 4 4 10 4 18v1h1c8 0 14-6 14-14V4Z"/><path d="M8.5 18c3-3 6-6 10-10.5"/></svg></div>
-        <b>Jornadas IDU</b>
-        <span class="qn-desc">Transferencia de conocimiento</span>
-        <div class="qn-tooltip">Presentaciones de las jornadas de transferencia de conocimiento del IDU en innovación y sostenibilidad.</div>
-      </a>
+
+      <div id="etg-circles" style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-start;gap:24px;flex:1 1 100%;width:100%;">
+        <a class="quicknav-item" href="javascript:void(0)" onclick="document.getElementById('etg-circles').style.display='none'; document.getElementById('etg-reveal').style.display='flex';" style="--accent:#BD1522">
+          <div class="quicknav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2.5h9l4 4V21a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1Z"/><path d="M14.5 2.5V7h4.5M8 12.5h8M8 16h8M8 9h4"/></svg></div>
+          <b>Especificaciones<br>Técnicas Generales</b>
+          <span class="qn-desc">Especificaciones técnicas generales de materiales</span>
+          <div class="qn-tooltip">Haz clic para ver el ciclo de generación y los documentos asociados a las Especificaciones Técnicas Generales.</div>
+        </a>
+        <a class="quicknav-item" href="https://www.idu.gov.co/page/siipviales/innovacion/portafolio" style="--accent:#8b8a7c">
+          <div class="quicknav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="4.5" width="17" height="15" rx="2"/><path d="M3.5 9.5h17M8 4.5v3M16 4.5v3"/></svg></div>
+          <b>Documentos<br>técnicos</b>
+          <span class="qn-desc">Guías, manuales, visores y cartillas</span>
+          <div class="qn-tooltip">Repositorio de guías, manuales, visores, cartillas y documentos técnicos en general producto de los estudios realizados por el IDU.</div>
+        </a>
+      </div>
+
+      <div id="etg-reveal" style="display:none;flex-direction:column;flex:1 1 100%;width:100%;">
+        <a href="javascript:void(0)" onclick="document.getElementById('etg-reveal').style.display='none'; document.getElementById('etg-circles').style.display='flex';" style="display:flex;align-items:center;gap:6px;font-size:12.5px;font-weight:700;color:var(--olive-deep);margin-bottom:18px;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" width="13" height="13"><path d="m15 6-6 6 6 6"/></svg>
+          Volver
+        </a>
+        <div class="cycle-wrap" style="margin-bottom:26px;">
+          <div class="cycle-head">Ciclo de generación de Especificaciones</div>
+          <div class="cycle-body">
+            <div class="cycle-step">
+              <div class="cs-num">01</div>
+              <p>Adopción de Especificaciones Técnicas Generales</p>
+            </div>
+            <div class="cycle-step">
+              <div class="cs-num">02</div>
+              <p>Implementación en cada etapa de los proyectos (prefactibilidad, factibilidad, estudios y diseños, construcción y conservación)</p>
+            </div>
+            <div class="cycle-step">
+              <div class="cs-num">03</div>
+              <p>Recopilación, estudio y análisis de experiencias y nuevas alternativas</p>
+            </div>
+            <div class="cycle-step">
+              <div class="cs-num">04</div>
+              <p>Evaluación y diagnóstico de necesidades de actualización, complementación, inclusión y fortalecimiento técnico</p>
+            </div>
+            <div class="cycle-step">
+              <div class="cs-num">05</div>
+              <p>Ejecución de ensayos de campo y laboratorio, revisión documental y análisis técnicos y económicos</p>
+            </div>
+          </div>
+        </div>
+        <div class="quicknav-band" style="padding:0;justify-content:center;width:100%;">
+          <a class="quicknav-item" href="javascript:void(0)" onclick="document.getElementById('etg-reveal').style.display='none'; document.getElementById('etic01-level').style.display='flex';" style="--accent:#BD1522">
+            <div class="quicknav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2.5h9l4 4V21a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1Z"/><path d="M14.5 2.5V7h4.5M8 12.5h8M8 16h8M8 9h4"/></svg></div>
+            <b>Especificaciones<br>ET-IC-01</b>
+            <span class="qn-desc">Documento completo por capítulos</span>
+            <div class="qn-tooltip">Haz clic para ver el acto administrativo, el control de versiones, las versiones prácticas y el listado completo de capítulos.</div>
+          </a>
+          <a class="quicknav-item" href="https://www.idu.gov.co/page/especificaciones-tecnicas-generales-de-materiales" style="--accent:#8b8a7c">
+            <div class="quicknav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="4.5" width="17" height="15" rx="2"/><path d="M3.5 9.5h17M8 4.5v3M16 4.5v3"/></svg></div>
+            <b>Histórico<br>Especificaciones</b>
+            <span class="qn-desc">Versiones anteriores</span>
+            <div class="qn-tooltip">Consulta versiones anteriores de las Especificaciones Técnicas Generales (ET-IC-01) publicadas por el IDU.</div>
+          </a>
+        </div>
+      </div>
+
+      <!-- Nivel ET-IC-01: 4 botones + listado de 12 capítulos -->
+      <div id="etic01-level" style="display:none;flex-direction:column;flex:1 1 100%;width:100%;">
+        <a href="javascript:void(0)" onclick="document.getElementById('etic01-level').style.display='none'; document.getElementById('etg-reveal').style.display='flex';" style="display:flex;align-items:center;gap:6px;font-size:12.5px;font-weight:700;color:var(--olive-deep);margin-bottom:18px;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" width="13" height="13"><path d="m15 6-6 6 6 6"/></svg>
+          Volver
+        </a>
+
+        <div class="quicknav-band" style="padding:0;justify-content:center;width:100%;margin-bottom:8px;">
+          <a class="quicknav-item" href="https://www.idu.gov.co/Archivos_Portal/Transparencia/Informacion%20de%20interes/SIIPVIALES/Innovaci%C3%B3n/Portafolio/2020/ET-IC-01-Especificaciones-tecnicas-generales/Resoluci%C3%B3n%20010910.pdf" style="--accent:#BD1522">
+            <div class="quicknav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12h6M9 16h6M9 8h1"/><path d="M6 3.5h8l4 4V20a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V4.5a1 1 0 0 1 1-1Z"/></svg></div>
+            <b>Acto<br>administrativo</b>
+            <span class="qn-desc">Resolución 010910</span>
+          </a>
+          <a class="quicknav-item" href="https://www.idu.gov.co/Archivos_Portal/Transparencia/Informacion%20de%20interes/SIIPVIALES/Innovaci%C3%B3n/Portafolio/2020/ET-IC-01-Especificaciones-tecnicas-generales/000-18-CONTROL-DE-VERSIONES.pdf" style="--accent:#BD1522">
+            <div class="quicknav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="4.5" width="17" height="15" rx="2"/><path d="M3.5 9.5h17M8 4.5v3M16 4.5v3"/></svg></div>
+            <b>Control de<br>versiones</b>
+            <span class="qn-desc">000-18</span>
+          </a>
+          <a class="quicknav-item" href="https://www.idu.gov.co/Archivos_Portal/Transparencia/Informacion%20de%20interes/SIIPVIALES/Innovaci%C3%B3n/Portafolio/2021/08-agosto/Version-practica-23-08-2021.pdf" style="--accent:#BD1522">
+            <div class="quicknav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0 5-5m-5 5-5-5"/><path d="M4 19h16"/></svg></div>
+            <b>Versión práctica<br>PDF</b>
+            <span class="qn-desc">Descarga el documento</span>
+          </a>
+          <a class="quicknav-item" href="https://www.idu.gov.co/Archivos_Portal/Transparencia/Informacion%20de%20interes/SIIPVIALES/Innovaci%C3%B3n/Portafolio/2021/08-agosto/Version-practica-23-08-2021.xlsm" style="--accent:#BD1522">
+            <div class="quicknav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0 5-5m-5 5-5-5"/><path d="M4 19h16"/></svg></div>
+            <b>Versión práctica<br>EXCEL</b>
+            <span class="qn-desc">Descarga el documento</span>
+          </a>
+        </div>
+
+        <div class="chapter-list" id="etic01-chapter-list" style="margin-top:22px;"></div>
+      </div>
+
+      <!-- Nivel documentos de un capítulo -->
+      <div id="chapter-docs-level" style="display:none;flex-direction:column;flex:1 1 100%;width:100%;">
+        <a href="javascript:void(0)" onclick="document.getElementById('chapter-docs-level').style.display='none'; document.getElementById('etic01-level').style.display='flex';" style="display:flex;align-items:center;gap:6px;font-size:12.5px;font-weight:700;color:var(--olive-deep);margin-bottom:18px;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" width="13" height="13"><path d="m15 6-6 6 6 6"/></svg>
+          Volver a capítulos
+        </a>
+        <h3 id="chapter-docs-title" style="font-size:16px;font-weight:800;color:var(--ink);margin:0 0 14px;text-align:center;"></h3>
+        <div id="chapter-docs-list"></div>
+      </div>
     </div>
 
     <div class="quicknav-band tab-panel" id="panel-directorio" style="display:none;">
@@ -710,6 +849,41 @@
     </div>
   </div>
 </main>
+
+<script>
+(function(){
+  var ET_CHAPTERS = {"1": {"name": "Aspectos Generales", "docs": [{"code": "100-18", "name": "Disposiciones generales"}, {"code": "101-18", "name": "Conceptos y definiciones técnicas"}, {"code": "102-18", "name": "Responsabilidades del Contratista de obra, Interventor y Supervisor"}, {"code": "103-18", "name": "Lineamientos para control de calidad de los trabajos ejecutados, y selección, aprobación y control de laboratorios de ensayos"}]}, "2": {"name": "Materiales Básicos", "docs": [{"code": "200-18", "name": "Cemento asfáltico"}, {"code": "201-18", "name": "Cemento asfáltico modificado con polímeros"}, {"code": "202-18", "name": "Emulsión asfáltica"}, {"code": "203-18", "name": "Emulsión asfáltica modificada con polímeros"}, {"code": "210-18", "name": "Mejoradores de adherencia para mezclas asfálticas"}, {"code": "220-18", "name": "Grano de Caucho Reciclado para el uso en mezclas asfálticas en caliente"}, {"code": "230-18", "name": "Materiales cementantes hidráulicos"}, {"code": "231-18", "name": "Cal"}, {"code": "240-18", "name": "Geotextiles"}, {"code": "241-18", "name": "Geoceldas"}, {"code": "242-18", "name": "Geomallas"}]}, "3": {"name": "Excavaciones, Rellenos y Subdrenes", "docs": [{"code": "300-18", "name": "Excavaciones para conformación de la subrasante"}, {"code": "301-18", "name": "Excavaciones para obras varias"}, {"code": "310-18", "name": "Rellenos para conformación de la subrasante"}, {"code": "320-18", "name": "Subdrenes con geotextil y material granular"}, {"code": "330-18", "name": "Cruce de redes de servicios públicos en calzadas mediante cárcamos"}]}, "4": {"name": "Subrasante", "docs": [{"code": "400-18", "name": "Lineamientos mínimos para la aprobación de actividades de exploración geotécnica"}, {"code": "410-18", "name": "Mejoramiento de la subrasante con rajón"}, {"code": "411-18", "name": "Mejoramiento de suelos y geomateriales con geotextil"}, {"code": "412-18", "name": "Mejoramiento de subrasante con geoceldas"}, {"code": "413-18", "name": "Mejoramiento de la subrasante con material proveniente de demolición de losas de concreto hidráulico"}, {"code": "420-18", "name": "Estabilización o modificación de subrasantes con cal"}, {"code": "421-18", "name": "Estabilización o modificación de subrasantes con cemento"}]}, "5": {"name": "Subbases y Bases Granulares", "docs": [{"code": "500-18", "name": "Generalidades para bases y subbases granulares"}, {"code": "510-18", "name": "Base y subbase granular para vías vehiculares"}, {"code": "511-18", "name": "Base y subbase granular para vías vehiculares con agregados reciclados obtenidos de RCD"}, {"code": "512-18", "name": "Subbase granular para vías peatonales y CicloRutas con agregados naturales"}, {"code": "513-18", "name": "Subbase granular para vías peatonales y CicloRutas con agregados reciclados obtenidos de RCD"}, {"code": "514-18", "name": "Base y subbase granular para vías vehiculares, peatonales y CicloRutas con MBR"}, {"code": "520-18", "name": "Mejoramiento de base y subbase granular con cemento hidráulico"}, {"code": "521-18", "name": "Mejoramiento de base y subbase granular con emulsión asfáltica"}, {"code": "522-18", "name": "Mejoramiento de base y subbase granular con cemento asfáltico"}, {"code": "530-18", "name": "Reciclaje de pavimento asfáltico para base y subbase granular mejorada con cemento asfáltico"}, {"code": "531-18", "name": "Reciclaje de pavimento asfáltico para base y subbase granular mejorada con emulsión asfáltica"}, {"code": "532-18", "name": "Reciclaje de pavimento asfáltico para base y subbase granular mejorada con asfalto espumado"}, {"code": "533-18", "name": "Reciclaje de pavimento asfáltico para base y subbase granular mejorada con cemento hidráulico"}]}, "6": {"name": "Riegos y Mezclas Asfálticas", "docs": [{"code": "600-18", "name": "Generalidades para riegos y mezclas asfálticas"}, {"code": "610-18", "name": "Riego Imprimación"}, {"code": "611-18", "name": "Riego de liga"}, {"code": "612-18", "name": "Riego de curado"}, {"code": "620-18", "name": "Mezcla asfáltica en caliente densa, semidensa y gruesa"}, {"code": "621-18", "name": "Mezcla asfáltica en caliente de alto módulo"}, {"code": "622-18", "name": "Mezcla asfáltica en caliente drenante"}, {"code": "623-18", "name": "Mezcla asfáltica en caliente abierta"}, {"code": "624-18", "name": "Mezcla asfáltica en caliente discontinua para capa de rodadura (Microaglomerado en Caliente)"}, {"code": "625-18", "name": "Mezcla asfáltica en caliente con asfalto modificado con caucho por vía húmeda"}, {"code": "626-18", "name": "Mezcla asfáltica en caliente modificada con caucho por vía seca"}, {"code": "627-18", "name": "Mezcla asfáltica tibia"}, {"code": "628-18", "name": "Mezcla asfáltica en frío densa"}, {"code": "629-18", "name": "Mezcla asfáltica en frío abierta"}]}, "7": {"name": "Actividades de Conservación de Pavimentos Asfálticos", "docs": [{"code": "700-18", "name": "Fresado de pavimentos asfálticos"}, {"code": "710-18", "name": "Parcheos y bacheos"}, {"code": "711-18", "name": "Parcheo mecanizado"}, {"code": "712-18", "name": "Parcheo de pavimento asfáltico con mezclas asfálticas prefabricadas almacenadas"}, {"code": "713-18", "name": "Parcheo con material de pavimento asfáltico reciclado MBR"}, {"code": "720-18", "name": "Sellado de fisuras y grietas"}, {"code": "730-18", "name": "Lechadas asfálticas"}, {"code": "731-18", "name": "Tratamiento arena-asfalto"}, {"code": "732-18", "name": "Tratamientos superficiales simple, doble y triple"}, {"code": "740-18", "name": "Refuerzo de capas asfálticas con geomallas"}, {"code": "750-18", "name": "White topping"}]}, "8": {"name": "Concreto Hidráulico", "docs": [{"code": "800-18", "name": "Pavimento de concreto hidráulico"}, {"code": "801-18", "name": "Instalación de concreto estampado para superficies de tránsito peatonal y vehicular"}, {"code": "810-18", "name": "Concreto autocompactante"}, {"code": "811-18", "name": "Concreto masivo"}]}, "9": {"name": "Actividades de Conservación de Pavimentos en Concreto Hidráulico", "docs": [{"code": "900-18", "name": "Sellado de fisuras de profundidad parcial y reposición de sello de juntas en losas de concreto hidráulico"}, {"code": "910-18", "name": "Reposición total o parcial de losas con concreto hidráulico"}]}, "10": {"name": "Espacio Público", "docs": [{"code": "1000-18", "name": "Generalidades para el espacio público"}, {"code": "1010-18", "name": "Procedimiento constructivo para losetas prefabricadas en concreto sobre superficies de tránsito peatonal"}, {"code": "1020-18", "name": "Procedimiento constructivo de adoquines de arcilla y concreto sobre superficies de tránsito peatonal y vehicular"}, {"code": "1030-18", "name": "Actividades de conservación para espacio público"}, {"code": "1040-18", "name": "Reductores de velocidad - Tipo Pompeyanos"}, {"code": "1050-18", "name": "Protección de superficies con recubrimiento Anti-Grafiti"}]}, "11": {"name": "Ciclorrutas", "docs": [{"code": "1100-18", "name": "Procedimientos constructivos y control de calidad para Ciclorrutas"}]}, "12": {"name": "Obras Varias Para Estructuras de Puentes Vehiculares y Peatonales", "docs": [{"code": "1200-18", "name": "Reposición de pisos de escaleras por material sintético en puente peatonal prototipo para Bogotá"}, {"code": "1201-18", "name": "Construcción e instalación de pisos de concreto pretensado en puente peatonal prototipo para Bogotá"}, {"code": "1202-18", "name": "Construcción e instalación de pisos de aluminio en puente peatonal prototipo para Bogotá"}, {"code": "1210-18", "name": "Protección de estructuras metálicas nuevas, fabricadas en acero al carbono no galvanizadas"}, {"code": "1211-18", "name": "Protección de estructuras metálicas nuevas, fabricadas en acero al carbono galvanizadas"}, {"code": "1212-18", "name": "Protección de estructuras metálicas existentes, fabricadas en acero al carbono no galvanizadas"}, {"code": "1213-18", "name": "Protección de estructuras metálicas existentes, fabricadas en acero al carbono galvanizadas"}, {"code": "1220-18", "name": "Soldadura en estructuras metálicas nuevas, fabricadas en acero al carbono"}, {"code": "1221-18", "name": "Soldadura en estructuras metálicas existentes, fabricadas en acero al carbono"}, {"code": "1230-18", "name": "Construcción de juntas de dilatación con elastómero armado para puentes vehiculares"}, {"code": "1240-18", "name": "Construcción de apoyos de neopreno reforzado para puentes vehiculares"}, {"code": "1250-18", "name": "Construcción de barandas y barreras de tráfico para puentes vehicular"}]}};
+
+  var listEl = document.getElementById('etic01-chapter-list');
+  if (listEl) {
+    var html = '';
+    for (var num in ET_CHAPTERS) {
+      if (!ET_CHAPTERS.hasOwnProperty(num)) continue;
+      var ch = ET_CHAPTERS[num];
+      html += '<div class="chapter-row" onclick="showEtChapter(' + num + ')">'
+            + '<div class="cr-left"><span class="cr-num">' + (num.length < 2 ? '0' + num : num) + '</span>'
+            + '<span class="cr-name">' + ch.name + '</span></div>'
+            + '<div class="cr-left" style="gap:8px;"><span class="cr-meta">' + ch.docs.length + ' documento' + (ch.docs.length === 1 ? '' : 's') + '</span>'
+            + '<svg class="cr-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"/></svg></div>'
+            + '</div>';
+    }
+    listEl.innerHTML = html;
+  }
+
+  window.showEtChapter = function(num) {
+    var ch = ET_CHAPTERS[num];
+    if (!ch) return;
+    document.getElementById('etic01-level').style.display = 'none';
+    document.getElementById('chapter-docs-level').style.display = 'flex';
+    document.getElementById('chapter-docs-title').textContent = 'Capítulo ' + num + ' ' + ch.name;
+    var docsHtml = '';
+    for (var i = 0; i < ch.docs.length; i++) {
+      docsHtml += '<div class="et-doc-row"><span class="ed-code">' + ch.docs[i].code + '</span><span class="ed-name">' + ch.docs[i].name + '</span></div>';
+    }
+    document.getElementById('chapter-docs-list').innerHTML = docsHtml;
+  };
+})();
+</script>
 
 <script>
 (function(){
