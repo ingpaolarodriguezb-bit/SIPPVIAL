@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+  <!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
@@ -560,12 +560,13 @@
         <p>En este sitio encontrará información relacionada con el Sistema de precios unitarios de referencia del IDU, como el visor de precios vigente, los costos estimativos a partir de Perfiles Viales POT, y la información histórica publicada.</p>
       </div>
 
+      <div id="precios-circles" style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-start;gap:24px;flex:1 1 100%;width:100%;">
       <a class="quicknav-item" href="https://www.idu.gov.co/page/siipviales/economico/portafolio" style="--accent:#C08A2E">
         <div class="quicknav-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V13"/><path d="M11 20V8"/><path d="M18 20V4"/><path d="M2.5 20.5h19"/></svg>
         </div>
         <b>Precios Unitarios<br>de Referencia</b>
-        <span class="qn-desc">Visor de precios vigente 2026-I Fase I</span>
+        <span class="qn-desc">Visor de precios vigente</span>
         <div class="qn-tooltip">Consulta los precios unitarios vigentes para materiales, insumos y actividades de construcción vial, actualizados semestralmente por el IDU.</div>
       </a>
 
@@ -591,29 +592,75 @@
         <div class="quicknav-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18h18M5 18V9l7-5 7 5v9"/></svg>
         </div>
-        <b>Costos Estimados<br>POT 190</b>
+        <b>Costos estimados<br>perfiles viales POT</b>
         <span class="qn-desc">Perfiles viales para proyectos de construcción</span>
-        <div class="qn-tooltip">Revisa los costos estimados de construcción según los perfiles viales establecidos en el POT 190 vigente.</div>
+        <div class="qn-tooltip">Revisa los costos estimados de construcción según los perfiles viales establecidos en el POT.</div>
       </a>
 
       <a class="quicknav-item" href="https://www.idu.gov.co/page/siipviales/economico/portafolio" style="--accent:#8b8a7c">
         <div class="quicknav-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><path d="M3.5 19c1-3.2 3-4.8 5.5-4.8s4.5 1.6 5.5 4.8"/><circle cx="17.5" cy="9" r="2.2"/><path d="M15.3 14.5c1.6.2 2.9 1.5 3.7 3.6"/></svg>
         </div>
-        <b>Módulo Fuente de<br>Estudio del Mercado</b>
-        <span class="qn-desc">Empresas participantes 2026</span>
-        <div class="qn-tooltip">Consulta el listado de empresas que participaron en el estudio de fuentes del mercado para la vigencia 2026.</div>
+        <b>Fuente de<br>Estudios de Mercado</b>
+        <span class="qn-desc">Empresas participantes</span>
+        <div class="qn-tooltip">Consulta el listado de empresas que participaron en el estudio de mercado para la vigencia actual.</div>
       </a>
 
-      <a class="quicknav-item" href="https://www.idu.gov.co/page/siipviales/economico/portafolio" style="--accent:#8b8a7c">
+      <a class="quicknav-item" href="javascript:void(0)" onclick="document.getElementById('precios-circles').style.display='none'; document.getElementById('precios-historico-level').style.display='flex';" style="--accent:#8b8a7c">
         <div class="quicknav-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="4.5" width="17" height="15" rx="2"/><path d="M3.5 9.5h17M8 4.5v3M16 4.5v3"/></svg>
         </div>
         <b>Información<br>Histórica</b>
-        <span class="qn-desc">Publicaciones 2013 — 2026</span>
-        <div class="qn-tooltip">Accede a las versiones anteriores de los precios de referencia, los perfiles viales POT y el módulo de cotizaciones, publicadas desde 2013.</div>
+        <span class="qn-desc">Publicaciones</span>
+        <div class="qn-tooltip">Accede a datos históricos de precios de referencia, perfiles viales POT y fuentes participantes de estudios de mercado.</div>
       </a>
+      </div>
 
+    </div>
+
+    <!-- Nivel 2: las 3 categorías de Información Histórica -->
+    <div id="precios-historico-level" style="display:none;flex-direction:column;flex:1 1 100%;width:100%;padding:0 10px;">
+      <a href="javascript:void(0)" onclick="document.getElementById('precios-historico-level').style.display='none'; document.getElementById('precios-circles').style.display='flex';" style="display:flex;align-items:center;gap:6px;font-size:12.5px;font-weight:700;color:var(--olive-deep);margin-bottom:18px;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" width="13" height="13"><path d="m15 6-6 6 6 6"/></svg>
+        Volver
+      </a>
+      <div class="quicknav-band" style="padding:0;justify-content:center;width:100%;">
+        <a class="quicknav-item" href="javascript:void(0)" onclick="showPreciosHistYears('precios')" style="--accent:#8b8a7c">
+          <div class="quicknav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V13"/><path d="M11 20V8"/><path d="M18 20V4"/><path d="M2.5 20.5h19"/></svg></div>
+          <b>Precios de<br>Referencia</b>
+          <span class="qn-desc">Publicaciones por año</span>
+        </a>
+        <a class="quicknav-item" href="javascript:void(0)" onclick="showPreciosHistYears('fuentes')" style="--accent:#8b8a7c">
+          <div class="quicknav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><path d="M3.5 19c1-3.2 3-4.8 5.5-4.8s4.5 1.6 5.5 4.8"/><circle cx="17.5" cy="9" r="2.2"/><path d="M15.3 14.5c1.6.2 2.9 1.5 3.7 3.6"/></svg></div>
+          <b>Fuentes Estudios<br>de Mercado</b>
+          <span class="qn-desc">Publicaciones por año</span>
+        </a>
+        <a class="quicknav-item" href="javascript:void(0)" onclick="showPreciosHistYears('pot')" style="--accent:#8b8a7c">
+          <div class="quicknav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18h18M5 18V9l7-5 7 5v9"/></svg></div>
+          <b>Costos Estimados<br>Perfiles Viales POT</b>
+          <span class="qn-desc">Publicaciones por año</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Nivel 3: años de la categoría elegida -->
+    <div id="precios-hist-years-level" style="display:none;flex-direction:column;flex:1 1 100%;width:100%;padding:0 10px;">
+      <a href="javascript:void(0)" onclick="document.getElementById('precios-hist-years-level').style.display='none'; document.getElementById('precios-historico-level').style.display='flex';" style="display:flex;align-items:center;gap:6px;font-size:12.5px;font-weight:700;color:var(--olive-deep);margin-bottom:18px;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" width="13" height="13"><path d="m15 6-6 6 6 6"/></svg>
+        Volver a categorías
+      </a>
+      <h3 id="precios-hist-years-title" style="font-size:16px;font-weight:800;color:var(--ink);margin:0 0 14px;text-align:center;"></h3>
+      <div class="chapter-list" id="precios-hist-years-list"></div>
+    </div>
+
+    <!-- Nivel 4: archivos del año elegido -->
+    <div id="precios-hist-files-level" style="display:none;flex-direction:column;flex:1 1 100%;width:100%;padding:0 10px;">
+      <a href="javascript:void(0)" onclick="document.getElementById('precios-hist-files-level').style.display='none'; document.getElementById('precios-hist-years-level').style.display='flex';" style="display:flex;align-items:center;gap:6px;font-size:12.5px;font-weight:700;color:var(--olive-deep);margin-bottom:18px;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" width="13" height="13"><path d="m15 6-6 6 6 6"/></svg>
+        Volver a años
+      </a>
+      <h3 id="precios-hist-files-title" style="font-size:16px;font-weight:800;color:var(--ink);margin:0 0 14px;text-align:center;"></h3>
+      <div id="precios-hist-files-list"></div>
     </div>
 
     <div class="abc-tab-preview tab-panel" id="panel-abc" style="border-top:none;margin-top:0;padding-top:0;">
@@ -676,12 +723,62 @@
           <span class="qn-desc">Especificaciones técnicas generales de materiales</span>
           <div class="qn-tooltip">Haz clic para ver el ciclo de generación y los documentos asociados a las Especificaciones Técnicas Generales.</div>
         </a>
-        <a class="quicknav-item" href="https://www.idu.gov.co/page/siipviales/innovacion/portafolio" style="--accent:#8b8a7c">
+        <a class="quicknav-item" href="javascript:void(0)" onclick="document.getElementById('etg-circles').style.display='none'; document.getElementById('versiones-hist-level').style.display='flex';" style="--accent:#8b8a7c">
           <div class="quicknav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="4.5" width="17" height="15" rx="2"/><path d="M3.5 9.5h17M8 4.5v3M16 4.5v3"/></svg></div>
           <b>Documentos<br>técnicos</b>
           <span class="qn-desc">Guías, manuales, visores y cartillas</span>
-          <div class="qn-tooltip">Repositorio de guías, manuales, visores, cartillas y documentos técnicos en general producto de los estudios realizados por el IDU.</div>
+          <div class="qn-tooltip">Haz clic para ver las versiones históricas de las Especificaciones Técnicas Generales.</div>
         </a>
+      </div>
+
+      <!-- Nivel: Versiones Históricas (3 versiones) -->
+      <div id="versiones-hist-level" style="display:none;flex-direction:column;flex:1 1 100%;width:100%;">
+        <a href="javascript:void(0)" onclick="document.getElementById('versiones-hist-level').style.display='none'; document.getElementById('etg-circles').style.display='flex';" style="display:flex;align-items:center;gap:6px;font-size:12.5px;font-weight:700;color:var(--olive-deep);margin-bottom:18px;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" width="13" height="13"><path d="m15 6-6 6 6 6"/></svg>
+          Volver
+        </a>
+        <h2 style="font-size:19px;font-weight:700;color:var(--ink);margin:0 0 18px;text-align:center;">Versiones Históricas</h2>
+
+        <div id="v-hist-circles" style="display:flex;flex-wrap:wrap;justify-content:center;gap:24px;width:100%;">
+          <a class="quicknav-item" href="https://www.idu.gov.co/Archivos_Portal/Transparencia/Informacion%20de%20interes/SIIPVIALES/Innovaci%C3%B3n/Portafolio/2020/ET-IC-01-Especificaciones-tecnicas-generales/Resolucion-1959-de-2006.pdf" style="--accent:#8b8a7c">
+            <div class="quicknav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0 5-5m-5 5-5-5"/><path d="M4 19h16"/></svg></div>
+            <b>Versión 1.0</b>
+            <span class="qn-desc">Resolución 1959 de 2006</span>
+            <div class="qn-tooltip">Especificaciones Técnicas Generales de Materiales y Construcción — IDU ET 2005. Vigente para proyectos estructurados a partir del 1 de junio de 2006.</div>
+          </a>
+          <a class="quicknav-item" href="https://www.idu.gov.co/Archivos_Portal/Transparencia/Informacion%20de%20interes/SIIPVIALES/Innovaci%C3%B3n/Portafolio/2020/ET-IC-01-Especificaciones-tecnicas-generales/Resolucion-4880-de-2011.pdf" style="--accent:#8b8a7c">
+            <div class="quicknav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0 5-5m-5 5-5-5"/><path d="M4 19h16"/></svg></div>
+            <b>Versión 2.0</b>
+            <span class="qn-desc">Resolución 4880 de 2011</span>
+            <div class="qn-tooltip">Especificaciones Técnicas Generales de Materiales y Construcción — IDU ET 2011. Vigente a partir de la entrada en vigencia de la Resolución 4880.</div>
+          </a>
+          <a class="quicknav-item" href="javascript:void(0)" onclick="document.getElementById('v-hist-circles').style.display='none'; document.getElementById('v3-chapters-level').style.display='flex';" style="--accent:#BD1522">
+            <div class="quicknav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2.5h9l4 4V21a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1Z"/><path d="M14.5 2.5V7h4.5M8 12.5h8M8 16h8M8 9h4"/></svg></div>
+            <b>Versión 3.0</b>
+            <span class="qn-desc">Resolución 3243 de 2013</span>
+            <div class="qn-tooltip">Especificaciones Técnicas Generales de Materiales y Construcción — IDU ET 2011, versión 3.0. Vigente a partir de la entrada en vigencia de la Resolución 3243.</div>
+          </a>
+        </div>
+
+        <!-- Nivel: capítulos de la Versión 3 -->
+        <div id="v3-chapters-level" style="display:none;flex-direction:column;flex:1 1 100%;width:100%;">
+          <a href="javascript:void(0)" onclick="document.getElementById('v3-chapters-level').style.display='none'; document.getElementById('v-hist-circles').style.display='flex';" style="display:flex;align-items:center;gap:6px;font-size:12.5px;font-weight:700;color:var(--olive-deep);margin:4px 0 18px;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" width="13" height="13"><path d="m15 6-6 6 6 6"/></svg>
+            Volver a versiones
+          </a>
+          <p style="text-align:center;font-size:12.5px;color:var(--slate);margin:0 0 6px;max-width:700px;margin-left:auto;margin-right:auto;">Resolución 3243 del 18 de diciembre de 2013: "Por la cual se adopta la actualización del Manual MG-IC-010 Especificaciones Técnicas Generales de Materiales y Construcción para Proyectos de Infraestructura Vial y de Espacio Público en Bogotá D.C. - IDU ET 2011 versión 3.0"</p>
+          <div class="chapter-list" id="v3-chapter-list" style="margin-top:16px;"></div>
+        </div>
+
+        <!-- Nivel: documentos de un capítulo de la Versión 3 -->
+        <div id="v3-chapter-docs-level" style="display:none;flex-direction:column;flex:1 1 100%;width:100%;">
+          <a href="javascript:void(0)" onclick="document.getElementById('v3-chapter-docs-level').style.display='none'; document.getElementById('v3-chapters-level').style.display='flex';" style="display:flex;align-items:center;gap:6px;font-size:12.5px;font-weight:700;color:var(--olive-deep);margin-bottom:18px;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" width="13" height="13"><path d="m15 6-6 6 6 6"/></svg>
+            Volver a capítulos
+          </a>
+          <h3 id="v3-chapter-docs-title" style="font-size:16px;font-weight:800;color:var(--ink);margin:0 0 14px;text-align:center;"></h3>
+          <div id="v3-chapter-docs-list"></div>
+        </div>
       </div>
 
       <div id="etg-reveal" style="display:none;flex-direction:column;flex:1 1 100%;width:100%;">
@@ -881,6 +978,93 @@
       docsHtml += '<div class="et-doc-row"><span class="ed-code">' + ch.docs[i].code + '</span><span class="ed-name">' + ch.docs[i].name + '</span></div>';
     }
     document.getElementById('chapter-docs-list').innerHTML = docsHtml;
+  };
+
+  var PRECIOS_HIST = {
+    precios: {
+      label: 'Precios de Referencia',
+      years: (function(){ var a=[]; for(var y=2026;y>=2013;y--) a.push(y); return a; })()
+    },
+    fuentes: {
+      label: 'Fuentes Estudios de Mercado',
+      years: [2026, 2025, 2024]
+    },
+    pot: {
+      label: 'Costos Estimados Perfiles Viales POT',
+      years: (function(){ var a=[]; for(var y=2026;y>=2018;y--) a.push(y); return a; })()
+    }
+  };
+
+  window.showPreciosHistYears = function(key) {
+    var cat = PRECIOS_HIST[key];
+    if (!cat) return;
+    document.getElementById('precios-historico-level').style.display = 'none';
+    document.getElementById('precios-hist-years-level').style.display = 'flex';
+    document.getElementById('precios-hist-years-title').textContent = cat.label;
+    var html = '';
+    for (var i = 0; i < cat.years.length; i++) {
+      var y = cat.years[i];
+      html += '<div class="chapter-row" data-cat="' + key + '" data-year="' + y + '">'
+            + '<div class="cr-left"><span class="cr-name">' + y + '</span></div>'
+            + '<div class="cr-left" style="gap:8px;"><svg class="cr-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"/></svg></div>'
+            + '</div>';
+    }
+    var listEl2 = document.getElementById('precios-hist-years-list');
+    listEl2.innerHTML = html;
+    var rows = listEl2.querySelectorAll('.chapter-row');
+    for (var r = 0; r < rows.length; r++) {
+      rows[r].addEventListener('click', function(){
+        showPreciosHistFiles(this.getAttribute('data-cat'), this.getAttribute('data-year'));
+      });
+    }
+  };
+
+  window.showPreciosHistFiles = function(key, year) {
+    var cat = PRECIOS_HIST[key];
+    if (!cat) return;
+    document.getElementById('precios-hist-years-level').style.display = 'none';
+    document.getElementById('precios-hist-files-level').style.display = 'flex';
+    document.getElementById('precios-hist-files-title').textContent = cat.label + ' — ' + year;
+    document.getElementById('precios-hist-files-list').innerHTML =
+      '<div class="et-doc-row"><span class="ed-name">Publicación ' + cat.label + ' ' + year + '-I</span></div>'
+      + '<div class="et-doc-row"><span class="ed-name">Publicación ' + cat.label + ' ' + year + '-II</span></div>';
+  };
+
+  var V3_CHAPTERS = {"1": {"name": "Aspectos Generales", "docs": [{"code": "100-11", "name": "Alcance y ámbito de aplicación"}, {"code": "101-13", "name": "Términos y definiciones"}, {"code": "102-11", "name": "Documentos de referencia y consulta"}, {"code": "103-11", "name": "Seguridad y salud"}, {"code": "104-11", "name": "Aspectos ambientales"}, {"code": "105-11", "name": "Responsabilidades especiales del constructor"}, {"code": "106-11", "name": "Supervisión"}, {"code": "107-11", "name": "Desarrollo de los trabajos"}, {"code": "108-11", "name": "Valoración de la obra ejecutada"}, {"code": "109-11", "name": "Selección, aprobación y control de laboratorios de ensayos"}]}, "2": {"name": "Materiales Básicos", "docs": [{"code": "200-11", "name": "Cemento asfáltico"}, {"code": "202-11", "name": "Cemento asfáltico modificado con polímeros"}, {"code": "210-11", "name": "Emulsión asfáltica"}, {"code": "212-11", "name": "Emulsión asfáltica modificada con polímeros"}, {"code": "220-11", "name": "Asfalto líquido para riegos de imprimación"}, {"code": "230-11", "name": "Estabilización con cal"}]}, "3": {"name": "Excavaciones y rellenos", "docs": [{"code": "310-11", "name": "Excavaciones para conformación de la subrasante"}, {"code": "320-11", "name": "Rellenos para conformación de la subrasante"}, {"code": "321-11", "name": "Mejoramiento de la subrasante con rajón"}, {"code": "330-11", "name": "Separación de suelos de subrasante y capas granulares con geotextil"}, {"code": "340-11", "name": "Subdrenes con geotextil y material granular"}, {"code": "342-11", "name": "Geomallas en capas asfálticas"}, {"code": "350-11", "name": "Excavaciones varias"}, {"code": "360-11", "name": "Cruce de redes de servicios públicos en calzadas mediante cárcamos"}]}, "4": {"name": "Subbases y bases", "docs": [{"code": "400-11", "name": "Capas granulares de base y subbase"}, {"code": "420-11", "name": "Capas de material granular estabilizado con cemento"}, {"code": "422-11", "name": "Capas de Material Granular Estabilizado en caliente con cemento asfáltico"}, {"code": "440-11", "name": "Capas de material granular estabilizado con emulsión asfáltica"}, {"code": "450-11", "name": "Reciclaje de Pavimento Asfáltico en el Sitio con Emulsión Asfáltica"}, {"code": "451-11", "name": "Reciclaje de Pavimento Asfáltico en el Sitio con Asfalto espumado"}, {"code": "452-11", "name": "Empleo de agregados pétreos a partir de concreto hidráulico reciclado"}, {"code": "454-11", "name": "Reciclaje de pavimento asfáltico en el sitio con cemento portland"}]}, "5": {"name": "Revestimientos asfálticos", "docs": [{"code": "500-13", "name": "Riego Imprimación"}, {"code": "502-11", "name": "Riego de liga"}, {"code": "503-13", "name": "Sellos de fisuras"}, {"code": "504-13", "name": "Riego de curado"}, {"code": "506-13", "name": "Sello arena-asfalto"}, {"code": "510-11", "name": "Mezclas asfálticas en caliente densas, semidensas y gruesas"}, {"code": "512-11", "name": "Mezcla asfáltica Drenante en caliente"}, {"code": "514-11", "name": "Mezcla asfáltica abierta en caliente"}, {"code": "520-11", "name": "Mezcla Asfáltica Discontinua en Caliente para Capa de Rodadura (Microaglomerado en Caliente)"}, {"code": "530-11", "name": "Lechadas asfálticas"}, {"code": "531-11", "name": "Tratamientos superficiales simple y doble"}, {"code": "540-11", "name": "Fresado de pavimentos asfálticos"}, {"code": "550-11", "name": "Mezcla asfáltica densa en frío"}, {"code": "552-11", "name": "Mezcla asfáltica abierta en frío"}, {"code": "560-11", "name": "Mezclas asfálticas en caliente con asfaltos modificados con caucho por vía húmeda"}, {"code": "570-11", "name": "Parcheos y bacheos"}, {"code": "571-13", "name": "Parcheo Mecanizado"}, {"code": "580-11", "name": "Parcheo de pavimento asfáltico con mezclas asfálticas prefabricadas almacenadas"}]}, "6": {"name": "Concreto", "docs": [{"code": "600-11", "name": "Pavimento de losas de concreto hidráulico"}]}, "7": {"name": "Espacio Público", "docs": [{"code": "700-11", "name": "Instalación de Adoquines de Arcilla para superficies de Tránsito Peatonal y vehicular"}, {"code": "701-11", "name": "Instalación de Adoquines de concreto para superficies de Tráfico Peatonal y vehicular"}, {"code": "710-11", "name": "Reductores de Velocidad - Tipo Popmeyanos"}, {"code": "720-13", "name": "Protección de Superficies con Recubrimiento Anti_Grafiti"}]}};
+
+  var v3ListEl = document.getElementById('v3-chapter-list');
+  if (v3ListEl) {
+    var v3html = '';
+    for (var vnum in V3_CHAPTERS) {
+      if (!V3_CHAPTERS.hasOwnProperty(vnum)) continue;
+      var vch = V3_CHAPTERS[vnum];
+      v3html += '<div class="chapter-row" data-chnum="' + vnum + '">'
+            + '<div class="cr-left"><span class="cr-num">' + (vnum.length < 2 ? '0' + vnum : vnum) + '</span>'
+            + '<span class="cr-name">' + vch.name + '</span></div>'
+            + '<div class="cr-left" style="gap:8px;"><span class="cr-meta">' + vch.docs.length + ' documento' + (vch.docs.length === 1 ? '' : 's') + '</span>'
+            + '<svg class="cr-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"/></svg></div>'
+            + '</div>';
+    }
+    v3ListEl.innerHTML = v3html;
+    var v3Rows = v3ListEl.querySelectorAll('.chapter-row');
+    for (var vr = 0; vr < v3Rows.length; vr++) {
+      v3Rows[vr].addEventListener('click', function(){
+        showV3Chapter(this.getAttribute('data-chnum'));
+      });
+    }
+  }
+
+  window.showV3Chapter = function(num) {
+    var ch = V3_CHAPTERS[num];
+    if (!ch) return;
+    document.getElementById('v3-chapters-level').style.display = 'none';
+    document.getElementById('v3-chapter-docs-level').style.display = 'flex';
+    document.getElementById('v3-chapter-docs-title').textContent = 'Capítulo ' + num + ' ' + ch.name;
+    var v3docsHtml = '';
+    for (var vi = 0; vi < ch.docs.length; vi++) {
+      v3docsHtml += '<div class="et-doc-row"><span class="ed-code">' + ch.docs[vi].code + '</span><span class="ed-name">' + ch.docs[vi].name + '</span></div>';
+    }
+    document.getElementById('v3-chapter-docs-list').innerHTML = v3docsHtml;
   };
 })();
 </script>
