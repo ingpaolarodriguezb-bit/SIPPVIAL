@@ -1,4 +1,4 @@
-  <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
@@ -485,7 +485,7 @@
 #view-home .stage-fit{position:relative;height:615px;}
 #view-home .stage{position:absolute;left:50%;top:0;width:1280px;height:615px;margin-left:-640px;transform-origin:50% 0;}
 #view-home .hero-copy{position:absolute;left:56px;top:68px;width:346px;color:#fff;z-index:3;}
-#view-home .hero-copy .hc-eyebrow{font-size:12px;font-weight:600;letter-spacing:.42em;text-transform:uppercase;color:rgba(255,255,255,.82);margin-bottom:12px;}
+#view-home .hero-copy h1 span{display:block;white-space:nowrap;}
 #view-home .hero-copy h1{text-shadow:0 2px 14px rgba(40,4,8,.35);font-size:31px;line-height:1.12;font-weight:800;margin:0;letter-spacing:-.01em;}
 #view-home .hero-copy .gold{width:60px;height:4px;border-radius:2px;background:var(--gold-strong);margin:18px 0 18px;}
 #view-home .hero-copy p{font-size:15.5px;line-height:1.55;margin:0;color:rgba(255,255,255,.93);}
@@ -495,7 +495,7 @@
 #view-home .wheel > svg{position:absolute;inset:0;width:100%;height:100%;filter:drop-shadow(0 8px 9px rgba(58,6,12,.30));}
 #view-home .wheel-center{position:absolute;left:134px;top:134px;width:124px;height:124px;border-radius:50%;background:radial-gradient(circle at 34% 24%,#fff 0%,#fff 55%,#F6E9E9 100%);
     box-shadow:0 0 0 6px rgba(255,255,255,.65),0 6px 20px rgba(58,6,12,.28);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0 12px;}
-#view-home .wheel-center b{font-size:33px;line-height:1;font-weight:800;color:var(--red-deep);letter-spacing:-.01em;}
+#view-home .wheel-center b{font-size:38px;line-height:1;font-weight:800;color:var(--red-deep);letter-spacing:-.01em;}
 #view-home .wheel-center span{font-size:10.5px;line-height:1.25;color:#3d3d3d;margin-top:5px;text-wrap:balance;}
 #view-home .wl{position:absolute;color:#fff;text-align:center;transform:translate(-50%,-50%);text-shadow:0 1px 2px rgba(60,8,8,.28);}
 #view-home .wl .ico{width:27px;height:27px;margin:0 auto 5px;}
@@ -736,8 +736,7 @@
     <div class="stage" id="stage">
 
       <div class="hero-copy">
-        <div class="hc-eyebrow">Sistema de</div>
-        <h1>Gestión de Activos de Infraestructura – SGAI</h1>
+        <h1><span>Sistema de</span> <span>Gestión de Activos</span> <span>de Infraestructura –</span> <span>SGAI</span></h1>
         <div class="gold"></div>
         <p>Articula procesos, información, metodologías y herramientas para apoyar la gestión de los activos de infraestructura durante su ciclo de vida y facilitar la toma de decisiones.</p>
       </div>
@@ -791,7 +790,7 @@
           <p>¿Cómo vamos?</p>
         </div>
 
-        <div class="wheel-center"><b>SGAI</b><span>Gestión de activos durante su ciclo de vida</span></div>
+        <div class="wheel-center"><b>SGAI</b></div>
       </div>
 
       <!-- texto curvo: condiciones habilitantes -->
@@ -922,12 +921,12 @@
     </a>
     <a class="card" style="--ac:#DC1620;--btn:#B8010B;--bg:linear-gradient(135deg,#FDE7E9,#FEE2E3);--bd:rgba(220,22,32,.18);" href="#precios" data-zone="precios">
       <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5"/><path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></svg></div>
-      <div class="tx"><b>Precios de referencia</b><span>APU, costos estimados, fichas de equipos y series históricas.</span></div>
+      <div class="tx"><b>Precios de referencia</b><span>APU, costos estimados y series históricas.</span></div>
       <div class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m9 5 7 7-7 7"/></svg></div>
     </a>
     <a class="card" style="--ac:#DE9A1A;--btn:#D38606;--bg:linear-gradient(135deg,#FEF4D9,#FEEFC8);--bd:rgba(222,154,26,.28);" href="#especificaciones" data-zone="especificaciones">
       <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2.5h9l4 4V21a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1Z"/><path d="M14.5 2.5V7h4.5M8 12.5h8M8 16h8M8 9h4"/></svg></div>
-      <div class="tx"><b>Especificaciones y documentos técnicos</b><span>Normas, guías, manuales, estudios y cartillas.</span></div>
+      <div class="tx"><b>Especificaciones y documentos técnicos</b><span>Guías, manuales, estudios y cartillas.</span></div>
       <div class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m9 5 7 7-7 7"/></svg></div>
     </a>
     <a class="card" style="--ac:#1A5E20;--btn:#2C7E30;--bg:linear-gradient(135deg,#E8F6E9,#DFF2DF);--bd:rgba(26,94,32,.18);" href="#innovacion" data-zone="innovacion">
@@ -961,23 +960,9 @@
         <div class="qn-tooltip">Consulta los precios unitarios vigentes para materiales, insumos y actividades de construcción vial, actualizados semestralmente por el IDU.</div>
       </a>
 
-      <a class="quicknav-item" href="https://www.idu.gov.co/page/siipviales/economico/portafolio" style="--accent:var(--za);--accent-l:var(--za-l);--accent-d:var(--za-d);--pill:var(--zpill)">
-        <div class="quicknav-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2.5h9l4 4V21a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1Z"/><path d="M14.5 2.5V7h4.5M8 12.5h8M8 16h8M8 9h4"/></svg>
-        </div>
-        <b>Fichas Técnicas<br>de Equipos</b>
-        <span class="qn-desc">Especificaciones de equipos para obra</span>
-        <div class="qn-tooltip">Encuentra las fichas con las especificaciones técnicas de la maquinaria y los equipos utilizados en los procesos constructivos.</div>
-      </a>
+      
 
-      <a class="quicknav-item" href="https://www.idu.gov.co/page/siipviales/economico/portafolio" style="--accent:var(--za);--accent-l:var(--za-l);--accent-d:var(--za-d);--pill:var(--zpill)">
-        <div class="quicknav-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M4 10h16M10 4v16"/></svg>
-        </div>
-        <b>Fichas Técnicas<br>de Ensayos</b>
-        <span class="qn-desc">Especificaciones de ensayos de laboratorio</span>
-        <div class="qn-tooltip">Consulta las especificaciones de los ensayos de laboratorio requeridos para verificar la calidad de los materiales.</div>
-      </a>
+      
 
       <a class="quicknav-item" href="https://www.idu.gov.co/page/siipviales/economico/portafolio" style="--accent:var(--za);--accent-l:var(--za-l);--accent-d:var(--za-d);--pill:var(--zpill)">
         <div class="quicknav-icon">
@@ -1518,4 +1503,3 @@
 </script>
 </body>
 </html>
-
